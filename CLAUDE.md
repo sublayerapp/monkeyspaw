@@ -5,9 +5,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Build Commands
 - `bundle install` - Install gem dependencies
 - `bundle exec rake build` - Build the gem
-- `bundle exec rspec` - Run all tests
-- `bundle exec rspec spec/path/to/file_spec.rb` - Run a single test file
-- `bundle exec rspec spec/path/to/file_spec.rb:LINE_NUMBER` - Run a specific test
+- `bundle exec rake spec` - Run all tests
+- `bundle exec rspec spec/monkeyspaw/config_spec.rb` - Run a single test file
+- `bundle exec rspec spec/monkeyspaw/config_spec.rb:12` - Run a specific test
 
 ## Linting & Style
 - Ruby version: >= 3.0
