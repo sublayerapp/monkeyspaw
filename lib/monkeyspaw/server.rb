@@ -28,9 +28,11 @@ module MonkeysPaw
     end
 
     def generate_page(path, prompt_file)
+      # Reload layout and style prompts on each request to pick up changes
+      app.prompt_manager.load_default_components
       layout_prompt = app.prompt_manager.layout_prompt
       style_prompt = app.prompt_manager.style_prompt
-      
+
       HtmlFromDescriptionGenerator.new(
         description: File.read(prompt_file),
         layout_prompt: layout_prompt,
