@@ -28,7 +28,14 @@ module MonkeysPaw
     end
 
     def generate_page(path, prompt_file)
-      HtmlFromDescriptionGenerator.new(description: File.read(prompt_file)).generate
+      layout_prompt = app.prompt_manager.layout_prompt
+      style_prompt = app.prompt_manager.style_prompt
+      
+      HtmlFromDescriptionGenerator.new(
+        description: File.read(prompt_file),
+        layout_prompt: layout_prompt,
+        style_prompt: style_prompt
+      ).generate
     end
 
     private
@@ -79,5 +86,8 @@ module MonkeysPaw
       end
     end
 
+    def generate_error_page(message)
+      "<html><body><h1>Error</h1><p>#{message}</p></body></html>"
+    end
   end
 end

@@ -12,6 +12,10 @@ module MonkeysPaw
       @router = nil
       @prompt_manager = nil
     end
+    
+    def prompt_manager
+      @prompt_manager ||= PromptManager.new(self)
+    end
 
     def configure
       yield config if block_given?
@@ -26,8 +30,9 @@ module MonkeysPaw
       setup_directories
 
       @router ||= Router.new(self)
-
-      @prompt_manager ||= PromptManager.new(self)
+      
+      # Initialize prompt manager
+      prompt_manager
 
       @server ||= Server.new(self, **options)
       @server.start
