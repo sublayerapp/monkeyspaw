@@ -6,7 +6,8 @@ module MonkeysPaw
                   :components_dir,
                   :assets_dir,
                   :port,
-                  :host
+                  :host,
+                  :caching_enabled
 
     def initialize
       @provider = nil
@@ -16,6 +17,7 @@ module MonkeysPaw
       @assets_dir = 'assets'
       @port = 1337
       @host = "localhost"
+      @caching_enabled = true
     end
 
     def to_h

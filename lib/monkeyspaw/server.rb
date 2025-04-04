@@ -28,16 +28,30 @@ module MonkeysPaw
     end
 
     def generate_page(path, prompt_file)
-      # Reload layout and style prompts on each request to pick up changes
+      if app.config.caching_enabled
+        # Try to get from cache first
+        cached_content = app.cache_manager.get_cached_page(path, prompt_file)
+        return cached_content if cached_content
+      end
+      
+      # Cache miss or caching disabled, generate the page
+      # Reload layout and style prompts to pick up changes
       app.prompt_manager.load_default_components
       layout_prompt = app.prompt_manager.layout_prompt
       style_prompt = app.prompt_manager.style_prompt
 
-      HtmlFromDescriptionGenerator.new(
+      html_content = HtmlFromDescriptionGenerator.new(
         description: File.read(prompt_file),
         layout_prompt: layout_prompt,
         style_prompt: style_prompt
       ).generate
+      
+      # Store in cache if enabled
+      if app.config.caching_enabled
+        app.cache_manager.cache_page(path, prompt_file, html_content)
+      end
+      
+      html_content
     end
 
     private

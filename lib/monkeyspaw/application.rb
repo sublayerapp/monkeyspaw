@@ -11,10 +11,15 @@ module MonkeysPaw
       @server = nil
       @router = nil
       @prompt_manager = nil
+      @cache_manager = nil
     end
     
     def prompt_manager
       @prompt_manager ||= PromptManager.new(self)
+    end
+    
+    def cache_manager
+      @cache_manager ||= CacheManager.new(self)
     end
 
     def configure

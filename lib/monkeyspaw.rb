@@ -6,6 +6,7 @@ require "monkeyspaw/config"
 require "monkeyspaw/server"
 require "monkeyspaw/router"
 require "monkeyspaw/prompt_manager"
+require "monkeyspaw/cache_manager"
 
 Dir[File.expand_path("../monkeyspaw/generators/*.rb", __FILE__)].each { |f| require f }
 
