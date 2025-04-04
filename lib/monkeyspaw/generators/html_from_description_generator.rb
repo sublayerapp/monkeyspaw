@@ -11,7 +11,22 @@ module MonkeysPaw
     end
 
     def generate
-      super
+      max_retries = 3
+      retry_count = 0
+      
+      begin
+        super
+      rescue => e
+        retry_count += 1
+        if retry_count <= max_retries
+          puts "Generator attempt #{retry_count}/#{max_retries} failed: #{e.message}. Retrying..."
+          sleep(1) # Add a small delay between retries
+          retry
+        else
+          puts "Generator failed after #{max_retries} attempts. Last error: #{e.message}"
+          raise
+        end
+      end
     end
 
     def prompt
