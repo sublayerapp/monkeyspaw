@@ -43,7 +43,7 @@ MonkeysPaw.pick_up!
 
 That's it! MonkeysPaw will interpret your desires by:
 
-1. Reading prompt files from the `pages/` directory
+1. Reading prompt files from the `wishes/` directory
 2. Channeling the AI entity to manifest your content
 3. Summoning a web server (default: http://localhost:1337)
 

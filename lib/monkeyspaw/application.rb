@@ -34,7 +34,7 @@ module MonkeysPaw
     end
 
     def pages_dir
-      root.join(config.pages_dir || 'pages')
+      root.join(config.pages_dir || 'wishes')
     end
 
     def components_dir

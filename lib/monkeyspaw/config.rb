@@ -11,7 +11,7 @@ module MonkeysPaw
     def initialize
       @provider = nil
       @model = nil
-      @pages_dir = 'pages'
+      @pages_dir = 'wishes'
       @components_dir = 'components'
       @assets_dir = 'assets'
       @port = 1337
