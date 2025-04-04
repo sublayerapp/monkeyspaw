@@ -1,17 +1,14 @@
 require 'monkeyspaw'
 
-# Set the project root to the current directory
-MonkeysPaw.root = File.expand_path('.')
-
 # Configure the application
 MonkeysPaw.configure do |config|
   config.port = 4567
   config.host = 'localhost'
-  
+
   # Enable caching to improve performance
   # Pages will only regenerate when their content or dependencies change
   config.caching_enabled = true
-  
+
   # Default directories are 'wishes', 'components', and 'assets'
 end
 
