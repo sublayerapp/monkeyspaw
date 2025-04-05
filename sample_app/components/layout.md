@@ -7,10 +7,10 @@ Create a responsive layout with the following structure:
 - Use a dark theme with mystical/magical feel
 - Set `font-family: 'Montserrat', 'Segoe UI', system-ui` for content and `font-family: 'Cinzel', serif` for headings
 - Include Google Fonts: `<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">`
+- Only include any CDN resources unless from jsdelivr.net
 
 ## Header
 - Fixed navigation at the top with slightly transparent dark background
-- Include a monkey's paw logo (use a simple SVG or emoji 🐒✋)
 - Navigation links should slide in from below when hovered
 - Include navigation items with the following paths:
   - Home (/) 

@@ -27,6 +27,7 @@ Apply these styling guidelines to create a mysterious, magical, and slightly omi
 - Links should glow subtly on hover
 - Success messages should look like "wishes granted"
 - Error messages should look like "cursed outcomes"
+- Do not use font-awesome
 
 ## Visual Effects
 - Subtle magical particle effects in the background
