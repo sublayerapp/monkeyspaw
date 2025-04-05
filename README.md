@@ -30,6 +30,17 @@ Or bind it directly:
 $ gem install monkeyspaw
 ```
 
+## AI Provider
+
+MonkeysPaw is currently set up to only commune with Gemini by default. Other AI
+entities will be supported shortly.
+
+To use Gemini set up your environment variable:
+
+```bash
+export GEMINI_API_KEY=your_gemini_api_key
+```
+
 ## Making Your First Wish
 
 Create a simple manifestation with just a few incantations:
