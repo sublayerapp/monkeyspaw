@@ -41,8 +41,6 @@ module MonkeysPaw
       load_style_prompt
     end
 
-    private
-
     def default_layout_prompt
       <<~LAYOUT
         # Layout Component

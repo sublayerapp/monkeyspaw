@@ -37,8 +37,15 @@ entities will be supported shortly.
 
 To use Gemini set up your environment variable:
 
+MacOS/Linux:
 ```bash
 export GEMINI_API_KEY=your_gemini_api_key
+```
+
+Windows:
+
+```bash
+Set-Item -Path env:GEMINI_API_KEY -Value "YourKeyHere"
 ```
 
 ## Making Your First Wish

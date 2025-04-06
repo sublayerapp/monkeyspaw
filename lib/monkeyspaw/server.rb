@@ -33,7 +33,7 @@ module MonkeysPaw
         cached_content = app.cache_manager.get_cached_page(path, prompt_file)
         return cached_content if cached_content
       end
-      
+
       # Cache miss or caching disabled, generate the page
       # Reload layout and style prompts to pick up changes
       app.prompt_manager.load_default_components
@@ -45,13 +45,17 @@ module MonkeysPaw
         layout_prompt: layout_prompt,
         style_prompt: style_prompt
       ).generate
-      
+
       # Store in cache if enabled
       if app.config.caching_enabled
         app.cache_manager.cache_page(path, prompt_file, html_content)
       end
-      
+
       html_content
+    end
+
+    def generate_error_page(message)
+      "<html><body><h1>Error</h1><p>#{message}</p></body></html>"
     end
 
     private
@@ -102,8 +106,5 @@ module MonkeysPaw
       end
     end
 
-    def generate_error_page(message)
-      "<html><body><h1>Error</h1><p>#{message}</p></body></html>"
-    end
   end
 end
