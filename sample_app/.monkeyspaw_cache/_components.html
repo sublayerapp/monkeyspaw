@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonkeysPaw - Components</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+            background-color: #121212;
+            color: #F8F8F2;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: #F8F8F2;
+            text-shadow: 0 0 5px rgba(255, 179, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cdefs%3E%3Cpattern id='pawprint' width='40' height='40' patternUnits='userSpaceOnUse'%3E%3Cpath d='M10 10 C 10 5, 15 5, 15 10 C 15 15, 10 15, 10 10 Z M30 10 C 30 5, 35 5, 35 10 C 35 15, 30 15, 30 10 Z M10 30 C 10 25, 15 25, 15 30 C 15 35, 10 35, 10 30 Z M30 30 C 30 25, 35 25, 35 30 C 35 35, 30 35, 30 30 Z M20 20 A 5 5 0 1 1 20 21' fill='%23333' /%3E%3C/pattern%3E%3C/defs%3E%3Crect width='100%' height='100%' fill='url(%23pawprint)'/%3E%3C/svg%3E");
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+        }
+
+        .header {
+            background-color: rgba(18, 18, 18, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links a {
+            color: #F8F8F2;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: transform 0.3s ease, color 0.3s ease;
+            display: inline-block;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #FFB300;
+            transform: translateY(-3px);
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 100%;
+            height: 2px;
+            background-color: #FFB300;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .footer {
+            background-color: #121212;
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer:hover .paw-icon {
+            animation: curl 1s forwards;
+        }
+
+        @keyframes curl {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(30deg); }
+        }
+
+        .paw-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FFB300"%3E%3Cpath d="M18.46 7.44c-.27-.18-.58-.28-.91-.28-.34 0-.65.1-.92.28-.87.58-1.91 1.11-3.13 1.48-.57.18-1.16.33-1.75.43-.59-.1-1.18-.25-1.75-.43-1.22-.37-2.26-.9-3.13-1.48-.27-.18-.58-.28-.92-.28-.33 0-.64.1-.91.28-.57.38-.92.98-.92 1.64 0 .36.14.7.38.99.92 1.17 2.02 2.22 3.28 3.12.89.6 1.82 1.12 2.77 1.54.95-.42 1.88-.94 2.77-1.54 1.26-.9 2.36-1.95 3.28-3.12.24-.29.38-.63.38-.99 0-.66-.35-1.26-.92-1.64zM11.17 14.76c-.57.2-.96.71-.96 1.31 0 .8.92 1.44 2.05 1.44 1.13 0 2.05-.64 2.05-1.44 0-.61-.39-1.11-.96-1.31-.57-.2-1.22-.2-1.78 0zM21.08 11.83c-.25-.44-.71-.72-1.23-.72-.52 0-.98.27-1.23.72-.79 1.38-2.07 2.63-3.64 3.67-.29.2-.6.35-.93.45.33-.1.64-.25.93-.45 1.57-1.04 2.85-2.29 3.64-3.67zM5.15 11.83c-.25-.44-.71-.72-1.23-.72-.52 0-.98.27-1.23.72-.79 1.38-2.07 2.63-3.64 3.67-.29.2-.6.35-.93.45.33-.1.64-.25.93-.45 1.57-1.04 2.85-2.29 3.64-3.67z"/%3E%3C/svg%3E');
+            background-size: cover;
+            vertical-align: middle;
+            transition: transform 0.3s ease;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background-color: #333;
+            color: #F0F0F0;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #4A154B;
+            color: #FFB300;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .theme-toggle:hover {
+            background-color: #FFB300;
+            color: #4A154B;
+        }
+
+        .section-divider {
+            height: 20px;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20" fill="none" stroke="%23FFB300" stroke-width="2"%3E%3Cpath d="M0 10 Q 50 20, 100 10"/%3E%3C/svg%3E');
+            background-size: contain;
+            background-repeat: repeat-x;
+            margin: 2rem 0;
+        }
+
+        .wish-granted {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(74, 21, 75, 0.8);
+            color: #FFB300;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .code-sample-container:hover .wish-granted {
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <nav class="flex items-center justify-between">
+                <div class="text-xl font-bold">MonkeysPaw</div>
+                <div class="nav-links">
+                    <a href="/">Home</a>
+                    <a href="/how-it-works">How It Works</a>
+                    <a href="/getting-started">Getting Started</a>
+                    <a href="/components">Components</a>
+                    <a href="/examples">Examples</a>
+                    <a href="/best-practices">Best Practices</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container mt-20">
+        <section>
+            <h1>The Building Blocks of Wishes</h1>
+            <p>Components in MonkeysPaw provide the foundation and character for your wishes. While your page descriptions define what content appears, components determine how that content is structured and presented. Understanding components is key to crafting effective wishes.</p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+            <h2>Component Types Overview</h2>
+            <p>There are two primary component types:</p>
+            <ol class="list-decimal list-inside">
+                <li><strong>Layout Components</strong>: Define the structural organization and arrangement of content.</li>
+                <li><strong>Style Components</strong>: Define the visual presentation, aesthetics, and mood.</li>
+            </ol>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+            <h2>Layout Components: The Skeleton</h2>
+            <p>Layout components determine how your content is arranged on the page, establishing the structural foundation for your wishes.</p>
+            <p>Key aspects:</p>
+            <ul class="list-disc list-inside">
+                <li>How layout components define page structure</li>
+                <li>The relationship between layout and responsiveness</li>
+                <li>How layout influences user experience</li>
+                <li>Typical elements defined in layout components</li>
+            </ul>
+
+            <h3>Sample Layout Component</h3>
+            <div class="code-sample-container relative">
+                <pre><code># Layout Component
+
+Create a layout with:
+- Fixed navigation header with logo and menu
+- Hero section with large image and overlay text
+- Three-column feature section for desktop, single column for mobile
+- Testimonial section with carousel
+- Contact form in a centered card
+- Footer with three sections: company info, links, and social media</code></pre>
+                <div class="wish-granted">Wish Granted!</div>
+            </div>
+            <p><strong>Annotation:</strong> This layout component defines a common website structure, including a fixed header, hero section, multi-column feature area, testimonial carousel, contact form, and a detailed footer. Responsiveness is considered by specifying different column layouts for desktop and mobile.</p>
+            <p>[Visual diagram showing how a layout component maps to the final page structure]</p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+            <h2>Style Components: The Skin</h2>
+            <p>Style components define the visual language of your site, determining colors, typography, visual effects, and the overall mood of your pages.</p>
+            <p>Key aspects:</p>
+            <ul class="list-disc list-inside">
+                <li>How style components establish visual identity</li>
+                <li>The relationship between style and brand perception</li>
+                <li>How style choices influence user engagement</li>
+                <li>Typical elements defined in style components</li>
+            </ul>
+
+            <h3>Sample Style Component</h3>
+            <div class="code-sample-container relative">
+                <pre><code># Style Component
+
+Apply these styling guidelines:
+- Color palette: Deep purple (#4A154B) for primary elements, amber gold (#FFB300) for accents, and light gray (#F3F4F6) for backgrounds
+- Typography: Playfair Display for headings, Raleway for body text
+- Buttons should have rounded corners with subtle hover effects
+- Cards should have soft shadows and slight border radius
+- Use subtle animations for interactive elements
+- Images should have a slight zoom effect on hover</code></pre>
+                 <div class="wish-granted">Wish Granted!</div>
+            </div>
+            <p><strong>Annotation:</strong> This style component defines the color scheme, typography, button styles, card styles, animations, and image effects for the website. It establishes a visual identity using specific colors and fonts.</p>
+            <p>[Visual examples showing how different style components can dramatically change the same layout]</p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+            <h2>The Dance of Components</h2>
+            <p>Layout and style components work together with page content to create a cohesive web experience. The layout defines the structure, while the style defines the appearance. The content fills the structure and is presented according to the style.</p>
+            <p>[Visual showing the same content with:</p>
+            <ol class="list-decimal list-inside">
+                <li>Different layouts but same style</li>
+                <li>Same layout but different styles</li>
+                <li>How both combine to create completely different experiences]</li>
+            </ol>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+            <h2>Creating Effective Components</h2>
+            <h3>Best practices for writing layout components:</h3>
+            <ul class="list-disc list-inside">
+                <li>Focus on structure, not specific content</li>
+                <li>Consider responsive behavior</li>
+                <li>Define clear content areas</li>
+                <li>Maintain consistency across pages</li>
+            </ul>
+
+            <h3>Best practices for writing style components:</h3>
+            <ul class="list-disc list-inside">
+                <li>Create cohesive color schemes</li>
+                <li>Establish consistent typography rules</li>
+                <li>Define interactive behavior</li>
+                <li>Consider accessibility needs</li>
+            </ul>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+            <h2>Mastering Component Craft</h2>
+            <p>Tips for advanced usage:</p>
+            <ul class="list-disc list-inside">
+                <li>Creating themed variants of components</li>
+                <li>Developing component systems for different page types</li>
+                <li>Using conditional elements in components</li>
+                <li>Creating component libraries for reuse</li>
+            </ul>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+            <h2>Common Pitfalls</h2>
+            <ul class="list-disc list-inside">
+                <li>Overloading components with too much detail</li>
+                <li>Mixing content concerns with layout/style</li>
+                <li>Conflicting instructions between components</li>
+                <li>Ignoring mobile/responsive considerations</li>
+            </ul>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+            <h2>Component Examples Gallery</h2>
+            <p>[Show 3-4 pairs of layout+style components and the resulting pages]</p>
+            <p>[Include annotations explaining how specific component instructions manifested in the final design]</p>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <section>
+            <h2>Next Steps</h2>
+            <p>Ready to create your own components?</p>
+            <ul class="list-disc list-inside">
+                <li><a href="/examples" class="text-teal-300">Examples page</a> for inspiration</li>
+                <li><a href="/best-practices" class="text-teal-300">Best Practices</a> for more advanced techniques</li>
+                <li><a href="/getting-started" class="text-teal-300">Getting Started</a> for a refresher on implementation</li>
+            </ul>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Be careful what you wish for...</p>
+        <a href="https://github.com/your-repo" class="text-gray-400 hover:text-white">GitHub</a> | &copy; 2024 <span class="paw-icon"></span>
+    </footer>
+
+    <button class="theme-toggle">Toggle Theme</button>
+
+    <script>
+        const themeToggle = document.querySelector('.theme-toggle');
+
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark');
+            // Add monkey paw animation here (omitted for brevity)
+        });
+
+    </script>
+
+</body>
+</html>

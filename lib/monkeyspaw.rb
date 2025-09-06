@@ -11,9 +11,6 @@ require "monkeyspaw/cache_manager"
 Dir[File.expand_path("../monkeyspaw/generators/*.rb", __FILE__)].each { |f| require f }
 
 module MonkeysPaw
-  Sublayer.configuration.ai_provider = Sublayer::Providers::Gemini
-  Sublayer.configuration.ai_model = "gemini-2.0-flash"
-
   class << self
     def application
       @application ||= Application.new
@@ -21,6 +18,11 @@ module MonkeysPaw
 
     def configure(&block)
       application.configure(&block)
+    end
+
+    def use(provider, model: nil)
+      application.config.ai_provider = provider
+      application.config.ai_model = model if model
     end
 
     def root

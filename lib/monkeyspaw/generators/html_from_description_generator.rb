@@ -13,7 +13,7 @@ module MonkeysPaw
     def generate
       max_retries = 3
       retry_count = 0
-      
+
       begin
         super
       rescue => e
@@ -58,12 +58,12 @@ module MonkeysPaw
         #{style_section}
 
         Take a deep breath and think step by step before you start coding. Ensure the HTML is well-formed and valid.
-        
+
         The three components work together as follows:
         1. The page description provides the specific content and features this page should have
         2. The layout requirements define the structural organization and placement of elements
         3. The style guidelines inform the visual presentation and aesthetic choices
-        
+
         Harmonize these elements to create a cohesive and effective web page that fulfills the intended purpose.
       PROMPT
     end

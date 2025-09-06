@@ -30,23 +30,49 @@ Or bind it directly:
 $ gem install monkeyspaw
 ```
 
-## AI Provider
+## AI Provider Configuration
 
-MonkeysPaw is currently set up to only commune with Gemini by default. Other AI
-entities will be supported shortly.
+MonkeysPaw can channel various AI entities to manifest your wishes. Configure your chosen provider:
 
-To use Gemini set up your environment variable:
+### Environment Variables
+
+Set up your API keys based on your chosen provider:
 
 MacOS/Linux:
 ```bash
 export GEMINI_API_KEY=your_gemini_api_key
+export ANTHROPIC_API_KEY=your_anthropic_api_key  
+export OPENAI_API_KEY=your_openai_api_key
 ```
 
 Windows:
-
 ```bash
 Set-Item -Path env:GEMINI_API_KEY -Value "YourKeyHere"
+Set-Item -Path env:ANTHROPIC_API_KEY -Value "YourKeyHere"
+Set-Item -Path env:OPENAI_API_KEY -Value "YourKeyHere"
 ```
+
+### Selecting Your AI Provider
+
+You can configure your AI provider in two ways:
+
+**Method 1: Using the `use` method**
+```ruby
+# Choose your entity and model
+MonkeysPaw.use :gemini, model: 'your-gemini-model'
+MonkeysPaw.use :claude, model: 'your-claude-model'
+MonkeysPaw.use :openai, model: 'your-openai-model'
+```
+
+**Method 2: Using the configure block**
+```ruby
+MonkeysPaw.configure do |config|
+  config.ai_provider = :gemini  # :gemini, :claude, or :openai
+  config.ai_model = 'your-model-name'
+end
+```
+
+Default provider is Gemini.
 
 ## Making Your First Wish
 
@@ -119,28 +145,28 @@ Configure the terms of your pact:
 
 ```ruby
 MonkeysPaw.configure do |config|
+  # Server settings
   config.port = 4567
   config.host = 'localhost'
+  
+  # AI provider settings
+  config.ai_provider = :gemini
+  config.ai_model = 'your-model-name'
+  
+  # Caching (enabled by default)
+  config.caching_enabled = true  # Set to false to disable caching
 end
 ```
 
-## Mystical Entities Available for Summoning (TODO)
+## Available AI Providers
 
-MonkeysPaw can channel various AI entities:
+MonkeysPaw supports multiple AI providers. Simply specify your provider and the model string that provider expects:
 
-```ruby
-# The Gemini Spirit
-MonkeysPaw.use :gemini, model: :gemini_2_0_flash
+- **Gemini** - Google's AI models
+- **Claude** - Anthropic's AI models  
+- **OpenAI** - OpenAI's GPT models
 
-# The OpenAI Oracle
-MonkeysPaw.use :openai, model: :gpt_4
-
-# The Anthropic Sage
-MonkeysPaw.use :anthropic, model: :claude_3_opus
-
-# The Mistral Wind
-MonkeysPaw.use :mistral, model: :mistral_large
-```
+Each provider regularly updates their available models. Check your provider's documentation for the latest model identifiers.
 
 ## Words of Caution
 

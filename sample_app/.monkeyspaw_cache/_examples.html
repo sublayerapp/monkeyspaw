@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonkeysPaw Examples Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+            background-color: #121212;
+            color: #F8F8F2;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: #FFB300;
+            text-shadow: 0 0 5px rgba(255, 179, 0, 0.5);
+        }
+
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: #F8F8F2;
+            transition: color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            color: #009688;
+        }
+
+        .parchment-bg {
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAFo9M/3AAAAIElEQVQoz2NgGDvgJwKzIDMDCAAACQQkAF8DhcIAAAAASUVORK5CYII='); /* Replace with actual parchment texture */
+            background-repeat: repeat;
+        }
+
+        .monkey-paw-divider {
+          height: 20px;
+          background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAFo9M/3AAAAIElEQVQoz2NgGDvgJwKzIDMDCAAACQQkAF8DhcIAAAAASUVORK5CYII='); /* Replace with actual monkey paw print image */
+          background-repeat: repeat-x;
+          background-position: center;
+          margin: 20px 0;
+        }
+
+        .footer {
+            background-color: #121212;
+            color: #F8F8F2;
+            text-align: center;
+            padding: 20px;
+        }
+
+        details {
+            border: 1px solid #4A154B;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        summary {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Add more styles as needed */
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-50">
+
+    <!-- Header -->
+    <nav class="navbar py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-xl font-bold">MonkeysPaw</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="/" class="hover:text-teal-300">Home</a>
+                <a href="/how-it-works" class="hover:text-teal-300">How It Works</a>
+                <a href="/getting-started" class="hover:text-teal-300">Getting Started</a>
+                <a href="/components" class="hover:text-teal-300">Components</a>
+                <a href="/examples" class="hover:text-teal-300">Examples</a>
+                <a href="/best-practices" class="hover:text-teal-300">Best Practices</a>
+            </div>
+            <!-- Mobile Menu (Hamburger) -->
+            <div class="md:hidden">
+                <button id="mobile-menu-button" class="text-gray-50 hover:text-teal-300 focus:outline-none focus:shadow-outline">
+                    ☰
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden bg-gray-800 py-2 px-4 absolute top-full left-0 w-full">
+            <a href="/" class="block py-1 hover:text-teal-300">Home</a>
+            <a href="/how-it-works" class="block py-1 hover:text-teal-300">How It Works</a>
+            <a href="/getting-started" class="block py-1 hover:text-teal-300">Getting Started</a>
+            <a href="/components" class="block py-1 hover:text-teal-300">Components</a>
+            <a href="/examples" class="block py-1 hover:text-teal-300">Examples</a>
+            <a href="/best-practices" class="block py-1 hover:text-teal-300">Best Practices</a>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="container mx-auto mt-20 py-8 px-4 parchment-bg">
+        <section class="mb-8">
+            <h1 class="text-4xl font-bold mb-4">Wishes Manifest</h1>
+            <p class="text-lg">See the power of MonkeysPaw in action through these examples. Each showcase demonstrates how specific wishes translate into fully-realized web pages. Study these examples to improve your own wish-crafting skills.</p>
+        </section>
+
+        <div class="monkey-paw-divider"></div>
+
+        <!-- Example 1: Business Landing Page -->
+        <section class="mb-8">
+            <img src="placeholder_landing_page.png" alt="Startup Launch Page Preview" class="mb-4 rounded shadow-md">
+            <h2 class="text-2xl font-bold mb-2">Startup Launch Page</h2>
+            <p class="text-gray-300 mb-2">Category: Business</p>
+            <details>
+                <summary>The Wish</summary>
+                <pre><code># SaaS Product Landing Page
+
+## Content Requirements
+Create a landing page for a cloud-based project management tool called "TaskFlow" that helps teams organize work.
+
+## Key Sections
+- Hero with headline, subheading, and primary CTA button
+- Features section with 3 key benefits and icons
+- How it works (3-step process)
+- Pricing plans (Free, Pro, Enterprise)
+- Customer testimonials (3 quotes)
+- FAQ accordion section
+- Newsletter signup and footer
+
+## Tone & Style
+- Professional but friendly
+- Modern and sleek
+- Emphasize efficiency and simplicity</code></pre>
+            </details>
+            <p><strong>Key Points:</strong> Notice how the 3-step process was structured visually. The pricing comparison maintains clear hierarchy. Testimonials are presented with visual balance. The accordion FAQ section saves space while providing information.</p>
+        </section>
+
+        <div class="monkey-paw-divider"></div>
+
+        <!-- Example 2: Personal Blog -->
+        <section class="mb-8">
+            <img src="placeholder_blog.png" alt="Travel Blog Homepage Preview" class="mb-4 rounded shadow-md">
+            <h2 class="text-2xl font-bold mb-2">Travel Blog Homepage</h2>
+            <p class="text-gray-300 mb-2">Category: Personal</p>
+            <details>
+                <summary>The Wish</summary>
+                <pre><code># Travel Blog Homepage
+
+## Content Description
+Create a homepage for a travel blog called "Wanderlust Chronicles" that showcases adventures around the world.
+
+## Required Sections
+- Header with blog name and navigation
+- Featured post with large image
+- Recent posts grid (3-4 posts)
+- About the blogger sidebar with photo
+- Categories list
+- Instagram feed preview (6 images)
+- Newsletter signup
+- Footer with social links
+
+## Visual Style
+- Vibrant and colorful
+- Large, immersive travel photography
+- Casual, adventurous feel</code></pre>
+            </details>
+            <p><strong>Key Points:</strong> Observe how the featured post draws attention. The grid layout balances text and images effectively. Social proof elements are integrated naturally. Mobile-responsive design adjusts content hierarchy.</p>
+        </section>
+
+        <div class="monkey-paw-divider"></div>
+
+        <!-- Example 3: E-Commerce Product Page -->
+        <section class="mb-8">
+            <img src="placeholder_ecommerce.png" alt="Artisan Coffee Shop Preview" class="mb-4 rounded shadow-md">
+            <h2 class="text-2xl font-bold mb-2">Artisan Coffee Shop</h2>
+            <p class="text-gray-300 mb-2">Category: E-Commerce</p>
+            <details>
+                <summary>The Wish</summary>
+                <pre><code># Specialty Coffee Product Page
+
+## Page Purpose
+Create a product page for a single-origin Ethiopia Yirgacheffe coffee that showcases its unique qualities and encourages purchase.
+
+## Required Elements
+- Product title and origin details
+- Large product image with zoom capability
+- Price and "Add to Cart" button
+- Roast level indicator (Medium-Light)
+- Flavor notes with visual representation
+- Origin story and farmer information
+- Brewing recommendations
+- Customer reviews section
+- Related products carousel
+
+## Desired Feeling
+- Artisanal and premium
+- Educational about coffee
+- Warm and inviting</code></pre>
+            </details>
+            <p><strong>Key Points:</strong> The wish specifically requested visual representation of flavor notes. Origin story creates emotional connection with the product. Brewing recommendations add value beyond the purchase. Mobile version prioritizes purchase elements.</p>
+        </section>
+
+         <div class="monkey-paw-divider"></div>
+
+        <!-- Example 4: Portfolio Site -->
+        <section class="mb-8">
+            <img src="placeholder_portfolio.png" alt="Designer Portfolio Preview" class="mb-4 rounded shadow-md">
+            <h2 class="text-2xl font-bold mb-2">Designer Portfolio</h2>
+            <p class="text-gray-300 mb-2">Category: Portfolio</p>
+            <details>
+                <summary>The Wish</summary>
+                <pre><code># Designer Portfolio Site
+
+## Content Needs
+Create a portfolio homepage for a UI/UX designer that showcases their work and skills.
+
+## Key Areas
+- Minimal header with name and navigation
+- Hero section with brief introduction and specialties
+- Work gallery with 6 featured projects (thumbnails)
+- About section with professional background
+- Skills and tools section
+- Process explanation (4 steps)
+- Contact section with form
+- Footer with social media links
+
+## Aesthetic
+- Minimalist and clean
+- Ample white space
+- Subtle animations on interaction
+- Typography-focused design</code></pre>
+            </details>
+            <p><strong>Key Points:</strong> Notice how white space is used to create focus. Project thumbnails expand with details on interaction. Typography hierarchy clearly guides the viewer. Animation is used purposefully rather than decoratively.</p>
+        </section>
+
+        <div class="monkey-paw-divider"></div>
+
+        <!-- Example 5: Documentation Page -->
+        <section class="mb-8">
+            <img src="placeholder_documentation.png" alt="API Documentation Preview" class="mb-4 rounded shadow-md">
+            <h2 class="text-2xl font-bold mb-2">API Documentation</h2>
+            <p class="text-gray-300 mb-2">Category: Technical</p>
+            <details>
+                <summary>The Wish</summary>
+                <pre><code># API Documentation Page
+
+## Content Requirements
+Create a documentation page for a payment processing API that is both technical and accessible.
+
+## Required Sections
+- Sticky navigation sidebar with collapsible categories
+- Introduction with quick start guide
+- Authentication section with code examples
+- Endpoints reference table
+- Request/response examples for each endpoint
+- Error codes and handling
+- Rate limiting information
+- SDK links and alternatives
+- Code snippets in multiple languages (JS, Python, Ruby)
+
+## Visual Style
+- Clean and highly readable
+- Syntax highlighting for code blocks
+- Light/dark mode toggle
+- Easy to scan structure</code></pre>
+            </details>
+            <p><strong>Key Points:</strong> The wish emphasized readability and scannable structure. Code examples use proper syntax highlighting. The sticky navigation makes complex information accessible. Light/dark mode respects developer preferences.</p>
+        </section>
+
+        <div class="monkey-paw-divider"></div>
+
+        <!-- Interactive Feature -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Interactive Wish Modifiers</h2>
+            <p>Modify simple wish parameters and see how it changes the outcome.</p>
+            <!-- Add toggles for color scheme, typography, layout density, content focus here -->
+            <p>Before/After Preview: [Implement preview feature here]</p>
+        </section>
+
+        <div class="monkey-paw-divider"></div>
+
+        <!-- Download Section -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Downloadable Examples</h2>
+            <ul>
+                <li><a href="#" class="text-teal-300 hover:text-teal-500">Complete wish markdown files</a></li>
+                <li><a href="#" class="text-teal-300 hover:text-teal-500">Project structure examples</a></li>
+                <li><a href="#" class="text-teal-300 hover:text-teal-500">Component variations</a></li>
+            </ul>
+        </section>
+
+        <div class="monkey-paw-divider"></div>
+
+        <!-- Best Practices Spotlight -->
+        <section class="mb-8">
+            <h2 class="text-2xl font-bold mb-4">Best Practices Spotlight</h2>
+            <p>Key learnings from the examples:</p>
+            <ul>
+                <li>Be specific about structure and relationships.</li>
+                <li>Use visual language to describe desired aesthetics.</li>
+                <li>Provide content examples for proper context.</li>
+                <li>Consider user journey and interactions.</li>
+            </ul>
+        </section>
+
+        <div class="monkey-paw-divider"></div>
+
+        <!-- Next Steps -->
+        <section>
+            <h2 class="text-2xl font-bold mb-4">Ready to craft your own wishes?</h2>
+            <a href="/getting-started" class="text-teal-300 hover:text-teal-500">Getting Started guide</a> | 
+            <a href="/components" class="text-teal-300 hover:text-teal-500">Components explanation</a> | 
+            <a href="/best-practices" class="text-teal-300 hover:text-teal-500">Best Practices</a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Be careful what you wish for...</p>
+        <a href="https://github.com/your-repo" class="text-gray-400 hover:text-gray-300">GitHub</a>
+    </footer>
+
+    <script>
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>

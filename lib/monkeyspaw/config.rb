@@ -1,7 +1,7 @@
 module MonkeysPaw
   class Config
-    attr_accessor :provider,
-                  :model,
+    attr_accessor :ai_provider,
+                  :ai_model,
                   :pages_dir,
                   :components_dir,
                   :assets_dir,
@@ -10,8 +10,8 @@ module MonkeysPaw
                   :caching_enabled
 
     def initialize
-      @provider = nil
-      @model = nil
+      @ai_provider = :gemini
+      @ai_model = 'gemini-2.0-flash-exp'
       @pages_dir = 'wishes'
       @components_dir = 'components'
       @assets_dir = 'assets'

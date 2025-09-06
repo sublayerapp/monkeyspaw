@@ -33,6 +33,7 @@ module MonkeysPaw
 
     def pick_up!(**options)
       setup_directories
+      apply_ai_configuration
 
       @router ||= Router.new(self)
 
@@ -69,6 +70,22 @@ module MonkeysPaw
       [pages_dir, components_dir, assets_dir].each do |dir|
         dir.mkpath unless dir.exist?
       end
+    end
+
+    def apply_ai_configuration
+      provider_class = case config.ai_provider
+      when :gemini, 'gemini'
+        Sublayer::Providers::Gemini
+      when :claude, 'claude', :anthropic, 'anthropic'
+        Sublayer::Providers::Claude
+      when :openai, 'openai'
+        Sublayer::Providers::OpenAI
+      else
+        raise "Unknown AI provider: #{config.ai_provider}"
+      end
+
+      Sublayer.configuration.ai_provider = provider_class
+      Sublayer.configuration.ai_model = config.ai_model
     end
   end
 end

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonkeysPaw 🐒✋ - Wish-Driven Development</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', 'Segoe UI', system-ui;
+            background-color: #121212;
+            color: #F8F8F2;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: #FFB300;
+            text-shadow: 0 0 5px rgba(255, 179, 0, 0.5);
+        }
+
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: #F8F8F2;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            color: #FFB300;
+            transform: translateY(3px);
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            /* Assuming subtle parchment texture will be added via background-image in a real implementation */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 179, 0, 0.1);
+        }
+
+        .footer {
+            background-color: #121212;
+            color: #F8F8F2;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .btn {
+            background-color: #4A154B;
+            color: #FFB300;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #FFB300;
+            color: #4A154B;
+        }
+
+        .feature-card {
+            border: 1px solid rgba(255, 179, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .code-sample {
+            background-color: #282A36;
+            color: #F8F8F2;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        .testimonial {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid rgba(255, 179, 0, 0.1);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .warning {
+            color: #FF5252;
+        }
+
+        /* Add more styles as needed */
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+
+    <!-- Header -->
+    <nav class="navbar py-4">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="/" class="text-xl font-bold">MonkeysPaw 🐒✋</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="/how-it-works">How It Works</a>
+                <a href="/getting-started">Getting Started</a>
+                <a href="/components">Components</a>
+                <a href="/examples">Examples</a>
+                <a href="/best-practices">Best Practices</a>
+            </div>
+            <!-- Mobile Menu (Hamburger) - Requires JS for functionality -->
+            <button class="md:hidden hamburger">☰</button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content mt-20">
+
+        <!-- Hero Section -->
+        <section class="text-center py-12">
+            <h1 class="text-5xl font-bold">MonkeysPaw 🐒✋</h1>
+            <p class="text-2xl">Wish-Driven Development for Ruby</p>
+            <p class="mt-4 text-lg">Be careful what you wish for...</p>
+            <p class="mt-2">A prompt-driven web framework that grants your web development wishes through AI. Like the legendary monkey's paw, it will fulfill your requests exactly as stated—for better or worse.</p>
+            <a href="/getting-started" class="btn mt-6 inline-block">Make Your First Wish</a>
+        </section>
+
+        <!-- Key Features Section -->
+        <section class="py-12">
+            <h2 class="text-3xl font-bold text-center mb-8">The Power of the Paw</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="feature-card">
+                    <h3 class="text-xl font-bold">Prompt-Driven</h3>
+                    <p>Express your intentions through natural language, not code.</p>
+                    <p class="warning">Be careful what you ask for; the Paw interprets literally.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-bold">AI-Powered</h3>
+                    <p>Harness advanced language models to generate complete web pages.</p>
+                    <p class="warning">AI lacks common sense; review its creations carefully.</p>
+                </div>
+                <div class="feature-card">
+                    <h3 class="text-xl font-bold">Eerily Accurate</h3>
+                    <p>Get precisely what you ask for—exactly as you phrase it.</p>
+                    <p class="warning">Precision is key; vague wishes can have unintended consequences.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="py-12">
+            <h2 class="text-3xl font-bold text-center mb-8">How It Works</h2>
+            <!-- Placeholder for 3-step graphic -->
+            <div class="text-center mb-8">[Graphic: Write wish -> Paw curls -> Page manifests]</div>
+            <div class="code-sample">
+                <code>
+                    require 'monkeyspaw'<br><br>
+                    # Make your wish come true<br>
+                    MonkeysPaw.pick_up!
+                </code>
+            </div>
+            <p class="mt-4">MonkeysPaw reads your wishes from the <code>wishes/</code> directory and manifests your content at http://localhost:1337</p>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="py-12">
+            <h2 class="text-3xl font-bold text-center mb-8">Tales of Granted Wishes</h2>
+            <div class="testimonial">
+                <p>I wished for a contact form and got exactly that—though I forgot to ask for form validation. Be specific!</p>
+                <p>— Ruby Developer</p>
+            </div>
+            <div class="testimonial">
+                <p>Asked for an 'eye-catching' header and now visitors can't look away... literally. Impressive, if slightly concerning.</p>
+                <p>— Web Designer</p>
+            </div>
+            <div class="testimonial">
+                <p>The landing page I wished for converts 200% better than my hand-coded one. I'm both thrilled and slightly unnerved.</p>
+                <p>— Startup Founder</p>
+            </div>
+        </section>
+
+        <!-- Final Call-to-Action -->
+        <section class="text-center py-12">
+            <a href="/getting-started" class="btn text-xl inline-block">Learn to Make Careful Wishes</a>
+            <p class="mt-4 warning">Remember: With great power comes the responsibility to be precise.</p>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Be careful what you wish for...</p>
+        <p>&copy; 2024 <a href="https://github.com/your-repo" class="hover:text-teal-300">GitHub</a></p>
+    </footer>
+
+</body>
+</html>

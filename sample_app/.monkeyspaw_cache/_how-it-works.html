@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How MonkeysPaw Works</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+            background-color: #121212;
+            color: #F8F8F2;
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: #FFB300;
+            text-shadow: 0 0 5px rgba(255, 179, 0, 0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-image: url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="%234A154B" stroke-width="0.5" opacity="0.2" %3E%3Cpath d="M10 10 L30 30 M30 10 L10 30" /%3E%3C/svg%3E');
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            border: 1px solid #4A154B;
+            border-radius: 8px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(18, 18, 18, 0.9); /* Dark background with transparency */
+            padding: 1rem 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            color: #F8F8F2;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+            display: inline-block;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #FFB300;
+            transform: translateY(-3px);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #FFB300;
+            visibility: hidden;
+            transform: scaleX(0);
+            transition: all 0.3s ease-in-out 0s;
+        }
+
+        nav a:hover::before {
+            visibility: visible;
+            transform: scaleX(1);
+        }
+
+        footer {
+            background-color: #121212;
+            color: #F8F8F2;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background-color: #282A36;
+            color: #F8F8F2;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+        }
+
+        .wish-granted {
+            position: absolute;
+            background-color: #FFB300;
+            color: #121212;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            display: none;
+        }
+
+        code:hover + .wish-granted {
+            display: block;
+        }
+
+        .warning {
+            color: #FF5252;
+            font-weight: bold;
+        }
+
+        .theme-toggle {
+          position: relative;
+          display: inline-block;
+          width: 60px;
+          height: 34px;
+        }
+
+        .theme-toggle input {
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        .slider {
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #ccc;
+          transition: .4s;
+          border-radius: 34px;
+        }
+
+        .slider:before {
+          position: absolute;
+          content: "";
+          height: 26px;
+          width: 26px;
+          left: 4px;
+          bottom: 4px;
+          background-color: white;
+          transition: .4s;
+          border-radius: 50%;
+        }
+
+        input:checked + .slider {
+          background-color: #4A154B;
+        }
+
+        input:focus + .slider {
+          box-shadow: 0 0 1px #4A154B;
+        }
+
+        input:checked + .slider:before {
+          transform: translateX(26px);
+        }
+
+        /* Monkey Paw Animation */
+        @keyframes curl {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .monkey-paw-icon {
+            display: inline-block;
+            animation: curl 2s infinite;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/how-it-works">How It Works</a></li>
+            <li><a href="/getting-started">Getting Started</a></li>
+            <li><a href="/components">Components</a></li>
+            <li><a href="/examples">Examples</a></li>
+            <li><a href="/best-practices">Best Practices</a></li>
+            <li>
+              <label class="theme-toggle">
+                <input type="checkbox">
+                <span class="slider"></span>
+              </label>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container mt-20">
+        <section>
+            <h1>The Magic Behind the Paw</h1>
+            <p>MonkeysPaw operates on a simple but powerful principle: your wishes (prompts) are interpreted by advanced AI to manifest as fully-formed web pages. But like any mystical artifact, understanding its workings can help you wield it more effectively.</p>
+        </section>
+
+        <section>
+            <h2>The Wish Cycle Diagram</h2>
+            <p>Visual flow diagram showing how wishes become web pages:</p>
+            <!-- Placeholder for diagram visualization -->
+            <img src="https://via.placeholder.com/800x200?text=Wish+Cycle+Diagram" alt="Wish Cycle Diagram">
+            <ol>
+                <li><strong>Your Wish</strong>: Written in markdown files in the <code>wishes/</code> directory</li>
+                <li><strong>Components</strong>: Layout and style components that influence the outcome</li>
+                <li><strong>The Granting</strong>: AI processing of the combined inputs</li>
+                <li><strong>Manifestation</strong>: The resulting HTML page displayed to users</li>
+            </ol>
+        </section>
+
+        <section>
+            <h2>Anatomy of a Wish</h2>
+            <p>A sample wish file with annotations explaining key parts:</p>
+            <pre>
+                <code>
+# Product Landing Page
+
+## Content Instructions:
+Create a landing page for a premium fountain pen with elegant design.
+Focus on craftsmanship and writing experience.
+
+## Key Features to Highlight:
+- Hand-crafted 14k gold nib
+- Piston filling mechanism
+- Ebonite body with custom patterns
+- Smooth writing experience
+
+## Desired Sections:
+- Hero with product image
+- Features breakdown
+- Testimonials from writers
+- Specifications table
+- Purchase options
+
+## Tone:
+Sophisticated, elegant, premium but not pretentious
+                </code>
+                <span class="wish-granted">Wish Granted!</span>
+            </pre>
+            <p>Each section of this 

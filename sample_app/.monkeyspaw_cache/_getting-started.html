@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MonkeysPaw - Getting Started</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', 'Segoe UI', system-ui, sans-serif;
+            background-color: #121212;
+            color: #F8F8F2;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            color: #FFB300;
+            text-shadow: 0 0 5px rgba(255, 179, 0, 0.5);
+        }
+
+        .navbar {
+            background-color: rgba(18, 18, 18, 0.9);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+        }
+
+        .navbar a {
+            color: #F8F8F2;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .navbar a:hover {
+            color: #FFB300;
+            transform: translateY(3px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h60v60H0z' fill='url(%23pattern)'/%3E%3Cdefs%3E%3Cpattern id='pattern' patternContentUnits='userSpaceOnUse' width='60' height='60'%3E%3Crect width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='10' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='20' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='30' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='40' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='50' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect y='10' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='10' y='10' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='20' y='10' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='30' y='10' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='40' y='10' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='50' y='10' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect y='20' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='10' y='20' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='20' y='20' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='30' y='20' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='40' y='20' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='50' y='20' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect y='30' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='10' y='30' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='20' y='30' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='30' y='30' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='40' y='30' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='50' y='30' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect y='40' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='10' y='40' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='20' y='40' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='30' y='40' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='40' y='40' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='50' y='40' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect y='50' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='10' y='50' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='20' y='50' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='30' y='50' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='40' y='50' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3Crect x='50' y='50' width='10' height='10' fill='rgba(74,21,75,0.1)'/%3E%3C/pattern%3E%3C/defs%3E%3C/svg%3E");
+            border: 1px solid #4A154B;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        code {
+            font-family: 'Fira Code', monospace;
+            background-color: #282A36;
+            color: #F8F8F2;
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+        }
+
+        .warning {
+            background-color: #FF5252;
+            color: #F8F8F2;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-top: 1rem;
+        }
+
+        .footer {
+            background-color: #121212;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .footer:hover .paw-icon {
+            transform: rotate(360deg);
+        }
+
+        .paw-icon {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23FFB300'%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3Cpath d='M12 2c-5.52 0-10 4.48-10 10 0 3.21 1.56 6.03 4 7.92v3.08c0 .55.45 1 1 1h10c.55 0 1-.45 1-1v-3.08c2.44-1.89 4-4.71 4-7.92 0-5.52-4.48-10-10-10zm0 18c-4.41 0-8-3.59-8-8 0-4.41 3.59-8 8-8s8 3.59 8 8c0 4.41-3.59 8-8 8z'/%3E%3C/svg%3E");
+            background-size: cover;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .btn {
+            background-color: #4A154B;
+            color: #F8F8F2;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 1rem;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #FFB300;
+            color: #121212;
+        }
+
+        /* Add fingerprint pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg fill='%234A154B' fill-opacity='0.1'%3E%3Cpath d='M0 0h20v20H0V0zm4.5 4.5a3 3 0 1 1 0 4.243L15.757 4.5A3 3 0 1 0 11.514 8.743L4.5 4.5zM15.757 15.757a3 3 0 1 0-4.243-4.243L4.5 15.757a3 3 0 1 1 4.243 4.243L15.757 15.757z'/%3E%3C/g%3E%3C/svg%3E");
+            z-index: -1;
+        }
+
+        pre {
+            position: relative;
+        }
+
+        pre:hover::after {
+            content: 'Wish Granted!';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255, 179, 0, 0.3);
+            color: #121212;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav class="navbar py-4">
+        <div class="container flex justify-between items-center">
+            <a href="/" class="text-2xl font-bold">MonkeysPaw</a>
+            <div>
+                <a href="/" class="mr-4">Home</a>
+                <a href="/how-it-works" class="mr-4">How It Works</a>
+                <a href="/getting-started" class="mr-4">Getting Started</a>
+                <a href="/components" class="mr-4">Components</a>
+                <a href="/examples" class="mr-4">Examples</a>
+                <a href="/best-practices">Best Practices</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-20">
+        <section>
+            <h1>Your First Wish Awaits</h1>
+            <p>This guide will walk you through summoning the MonkeysPaw, preparing your first wishes, and witnessing them manifest. Follow these steps carefully to begin your journey into wish-driven development.</p>
+        </section>
+
+        <section class="mt-8">
+            <h2>Prerequisites</h2>
+            <ul>
+                <li>Ruby 3.0 or higher</li>
+                <li>Bundler</li>
+                <li>Basic familiarity with Ruby and web concepts</li>
+                <li>A healthy respect for the power of wishes</li>
+            </ul>
+        </section>
+
+        <section class="mt-8">
+            <h2>Installation</h2>
+            <p><strong>Step 1:</strong> Add to your Gemfile</p>
+            <pre><code>gem 'monkeyspaw'</code></pre>
+            <p><strong>Step 2:</strong> Run bundle install</p>
+            <pre><code>$ bundle install</code></pre>
+            <p><strong>Alternative:</strong> Direct installation</p>
+            <pre><code>$ gem install monkeyspaw</code></pre>
+            <p><em>The paw is now in your possession. Use it wisely.</em></p>
+        </section>
+
+        <section class="mt-8">
+            <h2>Project Setup</h2>
+            <p>Creating a new MonkeysPaw project:</p>
+            <pre><code>$ mkdir my_wishes
+$ cd my_wishes</code></pre>
+            <p>Setting up the basic directory structure:</p>
+            <pre><code>mkdir -p wishes components assets</code></pre>
+            <p><strong>Explanation:</strong></p>
+            <ul>
+                <li><code>wishes/</code>: Where your page descriptions live</li>
+                <li><code>components/</code>: Layout and style components</li>
+                <li><code>assets/</code>: Static files like images</li>
+            </ul>
+        </section>
+
+        <section class="mt-8">
+            <h2>Your First Component Files</h2>
+            <p>Create a layout component (<code>components/layout.md</code>):</p>
+            <pre><code># Layout Component
+
+Create a clean layout with:
+- A header with site title and navigation
+- Main content area
+- Footer with copyright
+- Responsive design for mobile and desktop</code></pre>
+            <p>Create a style component (<code>components/style.md</code>):</p>
+            <pre><code># Style Component
+
+Apply these styling guidelines:
+- Modern, clean aesthetic with ample white space
+- Primary color: #3490dc, Secondary: #f6993f
+- Sans-serif fonts for readability
+- Subtle animations for interactive elements</code></pre>
+        </section>
+
+        <section class="mt-8">
+            <h2>Your First Wish</h2>
+            <p>Create your first wish file (<code>wishes/index.md</code>):</p>
+            <pre><code># Home Page
+
+## Content
+Create a welcoming home page for a personal blog about hiking adventures.
+
+## Required Sections
+- Hero section with a greeting and brief introduction
+- Featured hikes section with 3 recent adventures
+- About the author section with a short bio
+- Newsletter signup form
+
+## Tone
+Friendly, adventurous, and inspiring</code></pre>
+        </section>
+
+        <section class="mt-8">
+            <h2>Bringing It to Life</h2>
+            <p>Create a simple Ruby file to run your application (<code>app.rb</code>):</p>
+            <pre><code>require 'monkeyspaw'
+
+MonkeysPaw.pick_up!</code></pre>
+            <p>Run the application:</p>
+            <pre><code>$ ruby app.rb</code></pre>
+            <p>View your creation:</p>
+            <pre><code>You pick up the monkey's paw. Be careful what you wish for on http://localhost:1337</code></pre>
+        </section>
+
+        <section class="mt-8">
+            <h2>Customizing Your Experience</h2>
+            <p>Basic configuration options:</p>
+            <pre><code>MonkeysPaw.configure do |config|
+  config.port = 4567
+  config.host = 'localhost'
+  # Custom directories if needed
+  config.wishes_dir = 'my_custom_wishes_folder'
+  config.components_dir = 'my_custom_components_folder'
+end</code></pre>
+        </section>
+
+        <section class="mt-8">
+            <h2>Understanding the Results</h2>
+            <p>Tips for evaluating what you receive:</p>
+            <ul>
+                <li>Compare the output against your wish</li>
+                <li>Note areas where more specificity would help</li>
+                <li>Identify patterns in how your wishes are interpreted</li>
+                <li>Keep track of particularly effective phrasings</li>
+            </ul>
+        </section>
+
+        <section class="mt-8">
+            <h2>Debugging Common Issues</h2>
+            <p>Troubleshooting section with common problems:</p>
+            <ul>
+                <li>Missing directories</li>
+                <li>Unclear or contradictory wishes</li>
+                <li>Performance considerations</li>
+                <li>Server configuration issues</li>
+            </ul>
+        </section>
+
+        <section class="mt-8">
+            <h2>Next Steps</h2>
+            <p>Suggestions for further exploration:</p>
+            <ul>
+                <li>Try creating more complex pages</li>
+                <li>Experiment with different layout and style components</li>
+                <li>Learn how to structure multi-page sites</li>
+                <li>Read the Best Practices guide for more advanced usage</li>
+            </ul>
+        </section>
+
+        <div class="warning">
+            Remember: The paw grants exactly what you request, not what you intend. Be precise, be clear, and most importantly—be careful what you wish for.
+        </div>
+
+        <section class="mt-8">
+            <a href="/components" class="btn">Explore Components</a>
+            <a href="/examples" class="btn">See Examples</a>
+            <a href="/best-practices" class="btn">Learn Best Practices</a>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Be careful what you wish for... <span class="paw-icon"></span></p>
+        <p>&copy; 2024 MonkeysPaw - <a href="https://github.com/" class="text-teal-300">GitHub</a></p>
+    </footer>
+
+</body>
+</html>
